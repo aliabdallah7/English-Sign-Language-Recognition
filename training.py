@@ -13,11 +13,8 @@ data_dict = pickle.load(open('./data.pickle', 'rb'))
 data = data_dict.get('data', [])  # Retrieve the 'data' key or an empty list if not found
 labels = data_dict.get('labels', [])  # Retrieve the 'labels' key or an empty list if not found
 
-# Define the maximum sequence length for sequence padding (adjust as needed)
-max_sequence_length = 100  # Example: Set to an appropriate value
-
 # Pad or truncate sequences to the fixed length using 'pad_sequences'
-data_padded = pad_sequences(data, maxlen=max_sequence_length, padding='post', truncating='post', dtype='float32')
+data_padded = pad_sequences(data, maxlen=100, padding='post', truncating='post', dtype='float32')
 
 # Convert the padded data to a NumPy array
 data_array = np.array(data_padded)
